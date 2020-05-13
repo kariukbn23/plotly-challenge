@@ -1,8 +1,9 @@
 // Initial function to generate the different types of graphs that will be utilized during the project
+
 function getPlot(id) {
-//     // getting data from the json file
-//     d3.json("Data/samples.json").then((data)=> {
-//         console.log(data)
+    // Command to grab data from json file. 
+    
+    d3.json("Data/samples.json").then((data)=> {
   
 //         var wfreq = data.metadata.map(d => d.wfreq)
 //         console.log(`Washing Freq: ${wfreq}`)
