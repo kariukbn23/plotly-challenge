@@ -6,34 +6,39 @@ function getPlot(id) {
     d3.json("Data/samples.json").then((data)=> {
   
         // Establish variables that have aligned key values in json version of data to capture this specific characteristic and display it. 
+        
         var wfreq = data.metadata.map(d => d.wfreq)
+        
         console.log(`Washing Frequency: ${wfreq}`)
         
         // Similar to above we need an additional filter for 'samples' from our json data set. 
+        
         var samples = data.samples.filter(s => s.id.toString() === id)[0];
         
         console.log(samples);
   
         //One of our tasks is to capture the top 10 samples. The code below does that
-        var samplevalues = samples.sample_values.slice(0, 10).reverse();
-  
-//         // get only top 10 otu ids for the plot OTU and reversing it. 
-//         var OTU_top = (samples.otu_ids.slice(0, 10)).reverse();
         
-//         // get the otu id's to the desired form for the plot
-//         var OTU_id = OTU_top.map(d => "OTU " + d)
+        var sampVals = samples.sample_values.slice(0, 10).reverse();
   
-//       //   console.log(`OTU IDS: ${OTU_id}`)
+        //We had to perform the same task with the otu ids in terms of finding the top 10 values 
+        
+        var OTU_topTen = (samples.otu_ids.slice(0, 10)).reverse();
+        
+        // Establishing an additional variable that get's our otu_ids in the correct format
+        var OTU_id = OTU_topTen.map(d => "OTU " + d)
+  
+        console.log(`OTU IDS: ${OTU_id}`)
   
   
 //         // get the top 10 labels for the plot
 //         var labels = samples.otu_labels.slice(0, 10);
   
-//       //   console.log(`Sample Values: ${samplevalues}`)
-//       //   console.log(`Id Values: ${OTU_top}`)
+//       //   console.log(`Sample Values: ${sampVals}`)
+//       //   console.log(`Id Values: ${OTU_topTen}`)
 //         // create trace variable for the plot
 //         var trace = {
-//             x: samplevalues,
+//             x: sampVals,
 //             y: OTU_id,
 //             text: labels,
 //             marker: {
