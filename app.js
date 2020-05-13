@@ -5,16 +5,17 @@ function getPlot(id) {
     
     d3.json("Data/samples.json").then((data)=> {
   
-//         var wfreq = data.metadata.map(d => d.wfreq)
-//         console.log(`Washing Freq: ${wfreq}`)
+        // Establish variables that have aligned key values in json version of data to capture this specific characteristic and display it. 
+        var wfreq = data.metadata.map(d => d.wfreq)
+        console.log(`Washing Frequency: ${wfreq}`)
         
-//         // filter sample values by id 
-//         var samples = data.samples.filter(s => s.id.toString() === id)[0];
+        // Similar to above we need an additional filter for 'samples' from our json data set. 
+        var samples = data.samples.filter(s => s.id.toString() === id)[0];
         
-//         console.log(samples);
+        console.log(samples);
   
-//         // Getting the top 10 
-//         var samplevalues = samples.sample_values.slice(0, 10).reverse();
+        //One of our tasks is to capture the top 10 samples. The code below does that
+        var samplevalues = samples.sample_values.slice(0, 10).reverse();
   
 //         // get only top 10 otu ids for the plot OTU and reversing it. 
 //         var OTU_top = (samples.otu_ids.slice(0, 10)).reverse();
