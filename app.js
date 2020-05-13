@@ -52,29 +52,28 @@ function getPlot(id) {
             orientation: "h",
         };
   
-        // create data variable
+        // For every plotly graph you need data and layout configurations. Below is my variable for data established as a closed list 
         var data = [trace];
   
-        // create layout variable to set plots layout
         var layout = {
             title: "Top 10 OTU",
             yaxis:{
                 tickmode:"linear",
             },
             margin: {
-                l: 100,
-                r: 100,
-                t: 100,
+                l: 90,
+                r: 90,
+                t: 90,
                 b: 30
             }
         };
   
-        // create the bar plot
+        // Now it's time to create official plotly graph using the data, layout and type parameters
         Plotly.newPlot("bar", data, layout);
   
-        //console.log(`ID: ${samples.otu_ids}`)
+        console.log(`ID: ${samples.otu_ids}`)
       
-        // The bubble chart
+        // Rinse and repeat this process for the bubble chart
         var trace1 = {
             x: samples.otu_ids,
             y: samples.sample_values,
