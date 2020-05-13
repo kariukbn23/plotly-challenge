@@ -69,12 +69,14 @@ function getPlot(id) {
         };
   
         // Now it's time to create official plotly graph using the data, layout and type parameters
+        
         Plotly.newPlot("bar", data, layout);
   
         console.log(`ID: ${samples.otu_ids}`)
       
         // Rinse and repeat this process for the bubble chart
-        var trace1 = {
+        
+        var trace_bubble = {
             x: samples.otu_ids,
             y: samples.sample_values,
             mode: "markers",
@@ -86,22 +88,20 @@ function getPlot(id) {
   
         };
   
-        // set the layout for the bubble plot
-        var layout_b = {
+        
+        var layout_bubble = {
             xaxis:{title: "OTU ID"},
             height: 600,
             width: 1000
         };
   
-        // creating data variable 
-        var data1 = [trace1];
+        var data1 = [trace_bubble];
   
-        // create the bubble plot
-        Plotly.newPlot("bubble", data1, layout_b); 
+        Plotly.newPlot("bubble", data1, layout_bubble); 
   
-        // The guage chart
+        // Rinse and repeat for gauge plot. 
   
-        var data_g = [
+        var data_gauge = [
           {
           domain: { x: [0, 1], y: [0, 1] },
           value: parseFloat(wfreq),
@@ -111,21 +111,25 @@ function getPlot(id) {
           mode: "gauge+number",
           gauge: { axis: { range: [null, 9] },
                    steps: [
-                    { range: [0, 2], color: "yellow" },
-                    { range: [2, 4], color: "cyan" },
-                    { range: [4, 6], color: "teal" },
-                    { range: [6, 8], color: "lime" },
-                    { range: [8, 9], color: "green" },
+                    { range: [0, 1], color: 'rgb(232,229,215)' },
+                    { range: [1, 2], color: 'rgb(219,217,207)' },
+                    { range: [2, 3], color: 'rgb(195,186,143)' },
+                    { range: [3, 4], color: 'rgb(198,215,129)' },
+                    { range: [4, 5], color: 'rgb(179,228,106)' },
+                    { range: [5, 6], color: 'rgb(152,201,78)' },
+                    { range: [6, 7], color: 'rgb(110,193,86)' },
+                    { range: [7, 8], color: 'rgb(102,204,0)' },
+                    { range: [8, 9], color: 'rgb(0,204,0)' },
                   ]}
               
           }
         ];
-        var layout_g = { 
+        var layout_gauge = { 
             width: 700, 
             height: 600, 
             margin: { t: 20, b: 40, l:100, r:100 } 
           };
-        Plotly.newPlot("gauge", data_g, layout_g);
+        Plotly.newPlot("gauge", data_gauge, layout_gauge);
       });
   }  
 // create the function to get the necessary data
