@@ -140,21 +140,21 @@ function getInfo(id) {
     
     d3.json("Data/samples.json").then((data)=> {
         
-        // get the metadata info for the demographic panel
+        // Next we must grab the metadat for our panel
         
         var metadata = data.metadata;
 
         console.log(metadata)
 
-        // filter meta data info by id
+        // We must set a filter criteria for the metadat to be taged and eventually used for the drop down menu
         
         var result = metadata.filter(meta => meta.id.toString() === id)[0];
 
-        // select demographic panel to put data
+        // Store the desired data into variable
         
         var demographicInfo = d3.select("#sample-metadata");
         
-        // empty the demographic info panel each time before getting new id info
+        // Inbetween grabbing the different id values, this allows for the cache to be emptied
         
         demographicInfo.html("");
 
