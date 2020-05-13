@@ -26,16 +26,19 @@ function getPlot(id) {
         var OTU_topTen = (samples.otu_ids.slice(0, 10)).reverse();
         
         // Establishing an additional variable that get's our otu_ids in the correct format
+       
         var OTU_id = OTU_topTen.map(d => "OTU " + d)
   
         console.log(`OTU IDS: ${OTU_id}`)
   
   
-//         // get the top 10 labels for the plot
-//         var labels = samples.otu_labels.slice(0, 10);
+        // get the top 10 labels for the plot
+        
+        var labels = samples.otu_labels.slice(0, 10);
   
-//       //   console.log(`Sample Values: ${sampVals}`)
-//       //   console.log(`Id Values: ${OTU_topTen}`)
+        console.log(`Sample Values: ${sampVals}`)
+        
+        console.log(`Id Values: ${OTU_topTen}`)
 //         // create trace variable for the plot
 //         var trace = {
 //             x: sampVals,
