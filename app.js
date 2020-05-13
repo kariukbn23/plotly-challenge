@@ -158,7 +158,7 @@ function getInfo(id) {
         
         demographicInfo.html("");
 
-        // grab the necessary demographic data data for the id and append the info to the panel
+        // Using object entries (as used in the js hw) we can now append specific values to our display panel
         
         Object.entries(result).forEach((key) => {   
                 demographicInfo.append("h5").text(key[0].toUpperCase() + ": " + key[1] + "\n");    
@@ -166,32 +166,25 @@ function getInfo(id) {
     });
 }
 
-// create the function for the change event
+// Below are the required functions for the drop down menu in all phases of the initiation, changes and displaying desired results
 
 function optionChanged(id) {
     getPlot(id);
     getInfo(id);
 }
 
-// create the function for the initial data rendering
-
 function init() {
-    // select dropdown menu 
-    
+     
     var dropdown = d3.select("#selDataset");
-
-    // read the data 
     
     d3.json("Data/samples.json").then((data)=> {
         console.log(data)
-
-        // get the id data to the dropdwown menu
         
         data.names.forEach(function(name) {
             dropdown.append("option").text(name).property("value");
         });
 
-        // call the functions to display the data and the plots to the page
+        // After the selected data has been rendered, the follow displayes the desired information
         
         getPlot(data.names[0]);
         getInfo(data.names[0]);

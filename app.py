@@ -1,3 +1,5 @@
+#From Starter Code
+
 import os
 
 import pandas as pd
@@ -36,6 +38,7 @@ def index():
     """Return the homepage."""
     return render_template("index.html")
 
+#The remainder of the starter code was not needed for this assignment. 
 
 if __name__ == "__main__":
     app.run()
